@@ -16,7 +16,6 @@
     "lucide-react": "^0.378.0",
     "next": "14.2.3",
     "react": "^18",
-    "react-animated-text-content": "^1.0.1",
     "react-dom": "^18",
     "react-moving-text": "^0.0.7",
     "tailwind-merge": "^2.3.0",
