@@ -28,7 +28,7 @@ export default function SidebarMenuSection({
             className={cn(
               buttonVariants({ variant: "ghost", size: "sm" }),
 
-              "justify-start mb-2  w-full  "
+              "justify-start mb-2  w-full"
             )}
           >
             <link.icon className="mr-2 h-6 w-6" />
