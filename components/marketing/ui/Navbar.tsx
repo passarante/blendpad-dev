@@ -12,6 +12,22 @@ import {
 } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export default function Navbar({ isCollapsed }: { isCollapsed: boolean }) {
   const [text, setText] = useState("Get a FREE audit on CORE Chain");
@@ -79,13 +95,38 @@ export default function Navbar({ isCollapsed }: { isCollapsed: boolean }) {
             <Snowflake />
             <span>SolSale</span>
           </Button>
-          <Button className="flex items-center " variant={"ghost"}>
-            <Bitcoin />
-            <span>0</span>
-          </Button>
-          <Button variant={"link"}>
-            <BellDotIcon />
-          </Button>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button className="flex items-center " variant={"ghost"}>
+                <Bitcoin />
+                <span>0</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel>0 blend points</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Buy $BLEND token</DropdownMenuItem>
+              <DropdownMenuItem>Read More</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant={"link"}>
+                <BellDotIcon />
+              </Button>
+            </SheetTrigger>
+            <SheetContent>
+              <SheetHeader>
+                <SheetTitle>Notifications</SheetTitle>
+                <SheetDescription className="border-b border-dashed border-gray-700 pb-2">
+                  You have <span className="font-bold ">0</span> unread messages
+                </SheetDescription>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+
           <Button>Connect Wallet</Button>
         </div>
       </div>
