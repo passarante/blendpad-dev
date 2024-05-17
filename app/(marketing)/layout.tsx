@@ -25,12 +25,12 @@ export default function MarketingLayout({
       >
         <div
           className={cn("absolute top-[20px] left-[230px] z-50", {
-            "left-[100px]": isCollapsed,
+            "left-[80px]": isCollapsed,
           })}
         >
           <Button
             variant="secondary"
-            className="rounded-full p-2"
+            className={cn("rounded-full p-2 z-[50] cursor-pointer")}
             onClick={toggleSidebar}
           >
             <ChevronRight />

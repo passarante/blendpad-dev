@@ -10,16 +10,22 @@ import {
 import { cn } from "@/lib/utils";
 import { TooltipContent } from "@radix-ui/react-tooltip";
 import {
+  AlertTriangle,
   Archive,
   ArchiveX,
   ArrowLeftRight,
   ArrowLeftRightIcon,
   Blocks,
   DollarSign,
+  Edit2,
   File,
   Inbox,
   LockKeyhole,
+  PlusIcon,
   Send,
+  Settings2,
+  Shell,
+  SpellCheck,
   Trash2,
 } from "lucide-react";
 import Link from "next/link";
@@ -48,27 +54,74 @@ export default function Sidebar({ isCollapsed }: { isCollapsed: boolean }) {
       href: "",
     },
   ];
+  const developerLinks = [
+    {
+      title: "Create",
+      icon: PlusIcon,
+      href: "",
+    },
+    {
+      title: "Manage",
+      icon: Edit2,
+      href: "",
+    },
+    {
+      title: "Utility",
+      icon: Settings2,
+      href: "",
+    },
+  ];
+  const extrasLinks = [
+    {
+      title: "Docs",
+      icon: File,
+      href: "",
+    },
+    {
+      title: "Sale Alerts",
+      icon: AlertTriangle,
+      href: "",
+    },
+    {
+      title: "Blend Club",
+      icon: Shell,
+      href: "",
+    },
+  ];
 
   return (
-    <div className="fixed  h-screen z-50 ">
+    <div className="fixed  h-screen z-10 ">
       <div>
         <div
-          className={cn("mb-6 border-gray-700 border-b p-6", {
-            "p-1.5": isCollapsed,
+          className={cn("mb-6 border-gray-700 border-b w-[230px] p-2", {
+            "p-1.5  w-[100px]": isCollapsed,
           })}
         >
           <Logo isCollapsed={isCollapsed} />
         </div>
         <div>
-          <TooltipProvider>
-            <div
-              data-collapsed={isCollapsed}
-              className="group flex flex-col gap-4 py-2 data-[collapsed=true]:py-2"
-            >
-              <nav className="grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
-                <SidebarMenuSection title={"Explore"} links={exploreLinks} />
+          <div
+            data-collapsed={isCollapsed}
+            className="group flex flex-col gap-4 py-2 data-[collapsed=true]:py-2"
+          >
+            <nav className="grid gap-1 px-2 group-[[data-collapsed=true]]:justify-center group-[[data-collapsed=true]]:px-2">
+              <SidebarMenuSection
+                title={"Explore"}
+                links={exploreLinks}
+                isCollapsed={isCollapsed}
+              />
+              <SidebarMenuSection
+                title={"Developer"}
+                links={developerLinks}
+                isCollapsed={isCollapsed}
+              />
+              <SidebarMenuSection
+                title={"Extras"}
+                links={extrasLinks}
+                isCollapsed={isCollapsed}
+              />
 
-                {/* {links.map((link, index) =>
+              {/* {links.map((link, index) =>
                   isCollapsed ? (
                     <Tooltip key={index} delayDuration={0}>
                       <TooltipTrigger asChild>
@@ -127,9 +180,8 @@ export default function Sidebar({ isCollapsed }: { isCollapsed: boolean }) {
                     </Link>
                   )
                 )} */}
-              </nav>
-            </div>
-          </TooltipProvider>
+            </nav>
+          </div>
         </div>
       </div>
     </div>
