@@ -90,7 +90,7 @@
   height: var(--glowing-box-height);
   padding: 3px;
   position: relative;
-  border-radius: 6px;
+  border-radius: 9px;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -115,7 +115,7 @@
   content: "";
   width: 104%;
   height: 102%;
-  border-radius: 8px;
+  border-radius: 12px;
   background-image: linear-gradient(
     var(--rotate),
     #5ddcff,

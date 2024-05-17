@@ -1,5 +1,6 @@
+import Presales from "@/components/marketing/home/Presales";
 import TickerSlider from "@/components/marketing/home/TickerSlider";
-import { Button } from "@/components/ui/button";
+
 import { TrendingUp } from "lucide-react";
 import Image from "next/image";
 
@@ -23,6 +24,9 @@ export default function Home() {
           <TrendingUp className="w-10 h-10 mr-2" />
         </div>
         <TickerSlider />
+      </div>
+      <div>
+        <Presales />
       </div>
     </div>
   );
