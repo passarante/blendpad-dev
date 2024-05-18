@@ -59,8 +59,8 @@ export default function ChainFilter() {
             onClick={() => handleClick(index + 1)}
             key={index}
             src={`/images/chains/${chain}`}
-            width={24}
-            height={24}
+            width={16}
+            height={16}
             alt={`${chain}`}
             className={cn(
               "cursor-pointer hover:scale-[1.3] duration-200 transition-all",

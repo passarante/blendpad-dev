@@ -6,22 +6,26 @@ import {
   Blocks,
   Grip,
   Heart,
-  ListCollapse,
   ListFilter,
   Rows4,
+  Search,
   WalletMinimal,
 } from "lucide-react";
 import {
   SheetContent,
   SheetDescription,
   SheetHeader,
-  SheetTitle,
   SheetTrigger,
   Sheet,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import ChainFilter from "./filter/ChainFilter";
+import TierFilter from "./filter/TierFilter";
+import OptionFilter from "./filter/OptionFilter";
+import { Input } from "@/components/ui/input";
+import PresaleList from "./PresaleList";
+import PresaleGrid from "./PresaleGrid";
 
 export default function Presales() {
   const [layout, setLayout] = useState<"grid" | "list">("grid");
@@ -29,7 +33,7 @@ export default function Presales() {
     <div className="w-full">
       <Tabs defaultValue="all" className="w-full p-2">
         <div className="flex w-full items-center justify-between">
-          <div className="flex space-x-1   text-gray-700">
+          <div className="flex space-x-1   text-gray-700 items-center">
             <div
               onClick={() => setLayout("grid")}
               className={cn(
@@ -48,17 +52,33 @@ export default function Presales() {
             >
               <Rows4 />
             </div>
+            <div className="ml-4 relative">
+              <Search className="absolute top-2 left-6" />
+              <Input
+                className="ml-4 pl-10  w-[250px] ring-0 focus:outline-none focus:border-transparent focus:ring-0"
+                placeholder="Search..."
+              />
+            </div>
           </div>
           <div>
-            <TabsList>
-              <TabsTrigger value="all">
+            <TabsList className="bg-black space-x-2">
+              <TabsTrigger
+                value="all"
+                className="data-[state=active]:border-b border-white"
+              >
                 <Blocks className="mr-2" />
                 All Presales
               </TabsTrigger>
-              <TabsTrigger value="myContributions">
+              <TabsTrigger
+                value="myContributions"
+                className="data-[state=active]:border-b border-white"
+              >
                 <WalletMinimal className="mr-2" /> My Contributions
               </TabsTrigger>
-              <TabsTrigger value="favorites">
+              <TabsTrigger
+                value="favorites"
+                className="data-[state=active]:border-b border-white"
+              >
                 <Heart className="mr-2" />
                 Favorites
               </TabsTrigger>
@@ -72,18 +92,70 @@ export default function Presales() {
                   <ListFilter className="ml-2" />
                 </Button>
               </SheetTrigger>
-              <SheetContent>
+              <SheetContent className="backdrop-blur-sm bg-gray-700/20">
                 <SheetHeader>
                   <SheetDescription>
                     <ChainFilter />
+                    <div className="border-b border-gray-700 my-2" />
+                    <TierFilter />
+                    <div className="border-b border-gray-700 my-2" />
+                    <OptionFilter
+                      title="Badges"
+                      type="checkbox"
+                      unCheckAllBtn
+                      data={["No Badge", "KYC", "Audit", "Vetted"]}
+                    />
+                    <div className="border-b border-gray-700 my-2" />
+                    <OptionFilter
+                      title="Sort"
+                      type="radio"
+                      data={[
+                        "Default",
+                        "Newest",
+                        "Start Time",
+                        "End Time",
+                        "Rank",
+                      ]}
+                    />
+                    <div className="border-b border-gray-700 my-2" />
+                    <OptionFilter
+                      title="Status"
+                      type="checkbox"
+                      data={[
+                        "Upcoming",
+                        "Sale Live",
+                        "Sale Ended",
+                        "Cancelled",
+                      ]}
+                    />
+                    <div className="border-b border-gray-700 my-2" />
+                    <OptionFilter
+                      title="Sale Type"
+                      type="checkbox"
+                      data={["Normal Launch", "Fair Launch"]}
+                    />
+                    <div className="border-b border-gray-700 my-4" />
+                    <OptionFilter
+                      title="Listing Type"
+                      type="checkbox"
+                      data={["Auto Listing", "Manual Listing"]}
+                    />
+                    <div className="flex items-center justify-between mt-4 space-x-4">
+                      <Button size={"sm"} variant={"dark"} className="w-full">
+                        Reset
+                      </Button>
+                      <Button size={"sm"} variant={"dark"} className="w-full">
+                        Apply
+                      </Button>
+                    </div>
                   </SheetDescription>
                 </SheetHeader>
               </SheetContent>
             </Sheet>
           </div>
         </div>
-        <TabsContent value="all">
-          Make changes to your account here.
+        <TabsContent value="all" className="w-full">
+          {layout === "grid" ? <PresaleGrid /> : <PresaleList />}
         </TabsContent>
         <TabsContent value="myContributions">My Contributions</TabsContent>
         <TabsContent value="favorites">Favorites</TabsContent>

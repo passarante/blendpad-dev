@@ -101,12 +101,12 @@
   font-family: cursive;
 }
 
+
 .glowing-box:hover {
   color: rgb(88 199 250 / 100%);
   transition: color 1s;
 }
-.glowing-box:hover:before,
-.glowing-box:hover:after {
+.glowing-box:hover:before {
   animation: none;
   opacity: 0;
 }
@@ -129,7 +129,8 @@
   animation: spin 2.5s linear infinite;
 }
 
-.glowing-box::after {
+.glowing-box::after
+{
   position: absolute;
   content: "";
   top: calc(var(--glowing-box-height) / 6);
