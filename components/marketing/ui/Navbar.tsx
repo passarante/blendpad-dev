@@ -59,7 +59,7 @@ export default function Navbar({ isCollapsed }: { isCollapsed: boolean }) {
   return (
     <nav
       className={cn(
-        "bg-black border-b border-gray-900 h-20 flex fixed w-[calc(100vw-300px)] items-center justify-between px-8",
+        "bg-black border-b border-gray-900 h-20 flex fixed w-[calc(100vw-300px)] items-center justify-between px-8 z-50",
         { "w-[calc(100vw-100px)]": isCollapsed }
       )}
     >

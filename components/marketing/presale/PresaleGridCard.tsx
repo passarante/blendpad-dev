@@ -32,7 +32,7 @@ export default function PresaleGridCard({ presale }: { presale: PresaleType }) {
   return (
     <Link href={`/presale/${presale.address}?network=${presale.network}`}>
       <Card
-        className="hover:translate-y-[-30px] transition-all duration-300 rounded-lg cursor-pointer"
+        className="hover:translate-y-[-30px] transition-all duration-300 rounded-lg cursor-pointer min-h-96 mb-8"
         onMouseEnter={(e: React.MouseEvent) => setHover(true)}
         onMouseLeave={(e: React.MouseEvent) => setHover(false)}
       >
