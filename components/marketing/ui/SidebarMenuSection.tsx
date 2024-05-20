@@ -16,7 +16,6 @@ export default function SidebarMenuSection({
   title,
   isCollapsed,
 }: SidebarMenuSectionProps) {
-  console.log(links);
   return (
     <>
       {!isCollapsed && (
@@ -27,7 +26,7 @@ export default function SidebarMenuSection({
       <div className="flex flex-col w-[120px]">
         {links.map((link, index) => (
           <Link
-            href="#"
+            href={link.href}
             key={index}
             className={cn(
               "justify-start flex mb-2 w-[200px] hover:bg-gray-700 hover:rounded-lg p-4 ",

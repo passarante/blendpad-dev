@@ -18,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body className={montserrat.className}>
-        <div className="bg-black/40 w-full h-screen">{children}</div>
+        <div className="bg-black/40 w-full scrollbar-thin  scrollbar-thumb-rounded-full scrollbar-track-rounded-full  scrollbar-thumb-green-600 scrollbar-track-black h-screen overflow-y-scroll">
+          {children}
+        </div>
       </body>
     </html>
   );

@@ -69,8 +69,6 @@ export default function TickerSlider() {
         disableOnInteraction: true,
       }}
       modules={[Autoplay]}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
     >
       {tickers.map((ticker, index) => (
         <SwiperSlide key={index}>

@@ -36,7 +36,7 @@ export default function Sidebar({ isCollapsed }: { isCollapsed: boolean }) {
     {
       title: "Presales",
       icon: Blocks,
-      href: "",
+      href: "/presale/all",
     },
     {
       title: "Locks",
@@ -97,7 +97,9 @@ export default function Sidebar({ isCollapsed }: { isCollapsed: boolean }) {
             "p-1.5  w-[100px]": isCollapsed,
           })}
         >
-          <Logo isCollapsed={isCollapsed} />
+          <Link href="/presale/all">
+            <Logo isCollapsed={isCollapsed} />
+          </Link>
         </div>
         <div>
           <div

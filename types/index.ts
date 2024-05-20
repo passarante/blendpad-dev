@@ -25,11 +25,16 @@ export type PresaleType = {
     raised: number;
     softcap: number;
     hardcap: string;
-    rate: string;
+    currency: string;
+    rate?: string;
+    liquidity?: number;
     lock: string;
     tabs: TabContent[];
     stats: StatsTabType[];
-    updates: UpdatesTabType[];
+    updates?: UpdatesTabType[];
+    launched?: LaunchedType
+    address: string;
+    network: string;
 
 }
 
@@ -38,14 +43,14 @@ export type PresaleType = {
 type TabContent = AboutTabType | SaleTabType | TokenomicsTabType | LocksTabType | TeamTabType;
 
 
-type AboutTabType = {
+export type AboutTabType = {
     id: number;
     name: string;
     content: string;
     ytVideo: string
 }
 
-type SaleTabType = {
+export type SaleTabType = {
     id: number;
     name: string;
     network: string;
@@ -56,34 +61,44 @@ type SaleTabType = {
     tokensForPresale: number;
     softcap: number;
     hardcap: number;
-    unusedTokens: string;
+    unusedTokens?: string;
     presaleStartTime: string;
     presaleEndTime: string;
     liquidityPercent: string;
-    tokensReleasedOnLaunch: string;
-    vestingDelay: number;
-    VestingTimePeriod: number;
-    vestingReleasePerTimePeriod: string;
+    tokensForLiquidity?: number;
+    liquidityUnlockTime?: string;
+    tokensReleasedOnLaunch?: string;
+    vestingDelay?: number;
+    VestingTimePeriod?: number;
+    vestingReleasePerTimePeriod?: string;
 }
 
-type TokenomicsTabType = {
+
+
+
+export type TokenomicsTabType = {
     id: number;
     name: string;
     presale: number;
     unlocked: number;
+    liquidity?: number;
+    burnt?: number;
+    locked?: number;
+    score?: string;
     initialMarketCap: number;
     circulatingMarketCap: number;
     fdvMarketCap: number;
 }
 
-type LocksTabType = {
+export type LocksTabType = {
     id: number;
     name: string;
     tokenLocks: number;
     liquidityLocks: number;
+    tokenSymbol: string;
 }
 
-type TeamTabType = {
+export type TeamTabType = {
     id: number;
     name: string;
     members: TeamMemberType[];
@@ -92,7 +107,8 @@ type TeamTabType = {
 type TeamMemberType = {
     name: string;
     title: string;
-    twitter: string;
+    twitter?: string;
+    avatar?: string;
 }
 
 type StatsTabType = {
@@ -113,4 +129,14 @@ type UpdatesTabType = {
     id: number;
     dateFrom: string;
     content: string;
+}
+
+type LaunchedType = {
+    tokenAddress: string;
+    listingDex: string;
+    listingDexImage: string;
+    chart: string;
+    chartImage: string;
+    mintable: boolean,
+    freezable: boolean,
 }

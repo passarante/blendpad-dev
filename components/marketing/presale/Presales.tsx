@@ -26,6 +26,7 @@ import OptionFilter from "./filter/OptionFilter";
 import { Input } from "@/components/ui/input";
 import PresaleList from "./PresaleList";
 import PresaleGrid from "./PresaleGrid";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Presales() {
   const [layout, setLayout] = useState<"grid" | "list">("grid");
@@ -157,8 +158,22 @@ export default function Presales() {
         <TabsContent value="all" className="w-full">
           {layout === "grid" ? <PresaleGrid /> : <PresaleList />}
         </TabsContent>
-        <TabsContent value="myContributions">My Contributions</TabsContent>
-        <TabsContent value="favorites">Favorites</TabsContent>
+        <TabsContent
+          value="myContributions"
+          className="w-full  items-center justify-center  flex"
+        >
+          <h3 className="font-bold text-3xl mt-64">
+            Please Connect Your Wallet
+          </h3>
+        </TabsContent>
+        <TabsContent
+          value="favorites"
+          className="w-full items-center justify-center  flex "
+        >
+          <h3 className="font-bold text-3xl mt-64">
+            Please Connect Your Wallet
+          </h3>
+        </TabsContent>
       </Tabs>
     </div>
   );

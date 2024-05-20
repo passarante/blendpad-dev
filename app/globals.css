@@ -66,6 +66,9 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    --scrollbar-primary: 0 62.8% 30.6%;
+    --scrollbar-secondary: 210 40% 98%;
   }
 }
 
@@ -101,7 +104,6 @@
   font-family: cursive;
 }
 
-
 .glowing-box:hover {
   color: rgb(88 199 250 / 100%);
   transition: color 1s;
@@ -129,8 +131,7 @@
   animation: spin 2.5s linear infinite;
 }
 
-.glowing-box::after
-{
+.glowing-box::after {
   position: absolute;
   content: "";
   top: calc(var(--glowing-box-height) / 6);
