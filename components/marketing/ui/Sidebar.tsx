@@ -90,7 +90,7 @@ export default function Sidebar({ isCollapsed }: { isCollapsed: boolean }) {
   ];
 
   return (
-    <div className="fixed  h-screen z-10 ">
+    <div className="fixed  h-screen z-[10] ">
       <div>
         <div
           className={cn("mb-6 border-gray-700 border-b w-[230px] p-2", {

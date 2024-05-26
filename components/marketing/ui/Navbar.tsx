@@ -10,7 +10,7 @@ import {
   MegaphoneIcon,
   Snowflake,
 } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Sheet,
@@ -28,21 +28,25 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import ConnectWallet from "../wallet-connect/ConnectWallet";
 
 export default function Navbar({ isCollapsed }: { isCollapsed: boolean }) {
   const [text, setText] = useState("Get a FREE audit on CORE Chain");
-  const slogans = [
-    {
-      icon: <Snowflake />,
-      text: "Get a FREE audit on CORE Chain",
-      link: "#",
-    },
-    {
-      icon: <Snowflake />,
-      text: "Create SOL Sale on NEW Radyum V5 - No OpenBook FEES!",
-      link: "#",
-    },
-  ];
+  const slogans = useMemo(
+    () => [
+      {
+        icon: <Snowflake />,
+        text: "Get a FREE audit on CORE Chain",
+        link: "#",
+      },
+      {
+        icon: <Snowflake />,
+        text: "Create SOL Sale on NEW Radyum V5 - No OpenBook FEES!",
+        link: "#",
+      },
+    ],
+    []
+  );
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -126,8 +130,9 @@ export default function Navbar({ isCollapsed }: { isCollapsed: boolean }) {
               </SheetHeader>
             </SheetContent>
           </Sheet>
-
-          <Button>Connect Wallet</Button>
+          <div className="-mr-12">
+            <ConnectWallet />
+          </div>
         </div>
       </div>
     </nav>

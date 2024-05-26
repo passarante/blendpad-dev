@@ -103,6 +103,22 @@
   cursor: pointer;
   font-family: cursive;
 }
+.glowing-box-with-button {
+  background: #191c29;
+  width: 104px;
+  height: 104px;
+  padding: 2px;
+  position: relative;
+  border-radius: 9px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.5em;
+  color: white;
+  cursor: pointer;
+  font-family: cursive;
+}
 
 .glowing-box:hover {
   color: rgb(88 199 250 / 100%);
@@ -113,7 +129,8 @@
   opacity: 0;
 }
 
-.glowing-box::before {
+.glowing-box::before,
+.glowing-box-with-button::before {
   content: "";
   width: 104%;
   height: 102%;

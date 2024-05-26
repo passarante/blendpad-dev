@@ -34,7 +34,7 @@ export default function MarketingLayout({
         })}
       >
         <div
-          className={cn("absolute top-[20px] left-[230px] z-50", {
+          className={cn("absolute top-[20px] left-[218px] z-[500]", {
             "left-[80px]": isCollapsed,
           })}
         >
