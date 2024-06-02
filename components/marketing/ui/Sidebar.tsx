@@ -58,7 +58,7 @@ export default function Sidebar({ isCollapsed }: { isCollapsed: boolean }) {
     {
       title: "Create",
       icon: PlusIcon,
-      href: "",
+      href: "/create",
     },
     {
       title: "Manage",
